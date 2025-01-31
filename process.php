@@ -3,19 +3,40 @@ include('conexion.php');
 
 header('Content-Type: application/json');
 
+function sanitizarDatos($datos) {
+    if (is_array($datos)) {
+        return array_map('sanitizarDatos', $datos);
+    }
+    $datos = trim($datos);
+    $datos = stripslashes($datos);
+    $datos = htmlspecialchars($datos, ENT_QUOTES, 'UTF-8');
+    return $datos;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // Validar token CSRF
+        if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+            throw new Exception('Error de validación de seguridad');
+        }
+
         $conexion->beginTransaction();
         
-        // Insertar padre
+        // Sanitizar datos antes de insertar
+        $nombre = sanitizarDatos($_POST['nombre_completo']);
+        $email = sanitizarEmail($_POST['email']);
+        $dni = strtoupper(sanitizarDatos($_POST['dni']));
+        $telefono = sanitizarDatos($_POST['telefono']);
+
+        // Insertar padre con datos sanitizados
         $sql_padre = "INSERT INTO padres (nombre, email, dni, telefono) 
                       VALUES (:nombre, :email, :dni, :telefono)";
         $stmt = $conexion->prepare($sql_padre);
         $stmt->execute([
-            ':nombre' => limpiarDatos($_POST['nombre_completo']),
-            ':email' => limpiarDatos($_POST['email']),
-            ':dni' => limpiarDatos($_POST['dni']),
-            ':telefono' => limpiarDatos($_POST['telefono'])
+            ':nombre' => $nombre,
+            ':email' => $email,
+            ':dni' => $dni,
+            ':telefono' => $telefono
         ]);
         
         $id_padre = $conexion->lastInsertId();
@@ -30,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(!empty($nombre)) {
                 $stmt_hijo->execute([
                     ':id_padre' => $id_padre,
-                    ':nombre' => limpiarDatos($nombre),
-                    ':id_colegio' => limpiarDatos($_POST['colegio'][$i]),
-                    ':id_curso' => limpiarDatos($_POST['curso'][$i]),
-                    ':fecha' => limpiarDatos($_POST['fecha_nacimiento'][$i])
+                    ':nombre' => sanitizarDatos($nombre),
+                    ':id_colegio' => sanitizarDatos($_POST['colegio'][$i]),
+                    ':id_curso' => sanitizarDatos($_POST['curso'][$i]),
+                    ':fecha' => sanitizarDatos($_POST['fecha_nacimiento'][$i])
                 ]);
                 
                 // Obtener datos para el resumen
@@ -66,6 +87,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode([
             'success' => false,
             'message' => 'Error al registrar: ' . $e->getMessage()
+        ]);
+    } catch(Exception $e) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error: ' . $e->getMessage()
         ]);
     }
 }

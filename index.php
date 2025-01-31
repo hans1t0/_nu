@@ -1,4 +1,7 @@
 <?php
+session_start();
+// Generar token CSRF
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 include('conexion.php');
 if(isset($_GET['mensaje'])) {
     $mensaje = $_GET['mensaje'];
@@ -59,6 +62,7 @@ if(isset($_GET['mensaje'])) {
                 <?php endif; ?>
                 
                 <form method="POST" action="process.php" class="needs-validation" novalidate>
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                     <div class="card mb-4">
                         <div class="card-header">
                             <h5 class="mb-0">

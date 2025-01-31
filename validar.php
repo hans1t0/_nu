@@ -34,9 +34,24 @@ function validarDocumentoIdentidad($documento) {
     return false;
 }
 
+function validarNombre($nombre) {
+    return preg_match('/^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]{2,100}$/', $nombre);
+}
+
+function validarFechaNacimiento($fecha) {
+    $fecha = strtotime($fecha);
+    $minDate = strtotime('-18 years'); // Para padres
+    $maxDate = strtotime('-2 years');  // Para niños
+    return ($fecha && $fecha <= $maxDate && $fecha >= $minDate);
+}
+
+function sanitizarEmail($email) {
+    return filter_var(strtolower(trim($email)), FILTER_SANITIZE_EMAIL);
+}
+
 // Validar padre
-if (empty($_POST['nombre_completo'])) {
-    $errors[] = "El nombre es requerido";
+if (empty($_POST['nombre_completo']) || !validarNombre($_POST['nombre_completo'])) {
+    $errors[] = "El nombre solo debe contener letras y espacios (2-100 caracteres)";
 }
 
 if (empty($_POST['dni'])) {
@@ -55,29 +70,56 @@ if (empty($_POST['dni'])) {
     }
 }
 
-if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Email inválido";
+if (empty($_POST['email'])) {
+    $errors[] = "Email requerido";
 } else {
-    // Verificar email único
-    $stmt = $conexion->prepare("SELECT id FROM padres WHERE email = ?");
-    $stmt->execute([$_POST['email']]);
-    if ($stmt->fetch()) {
-        $errors[] = "El email ya está registrado";
+    $email = sanitizarEmail($_POST['email']);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Email inválido";
+    } else {
+        // Verificar email único
+        $stmt = $conexion->prepare("SELECT id FROM padres WHERE email = ?");
+        $stmt->execute([$email]);
+        if ($stmt->fetch()) {
+            $errors[] = "El email ya está registrado";
+        }
     }
+}
+
+// Validar teléfono
+if (!preg_match('/^[6-9][0-9]{8}$/', $_POST['telefono'])) {
+    $errors[] = "Teléfono inválido (debe empezar por 6-9 y tener 9 dígitos)";
 }
 
 // Validar hijos
 if (!empty($_POST['nombre_hijo'])) {
     foreach ($_POST['nombre_hijo'] as $i => $nombre) {
         if (!empty($nombre)) {
-            if (empty($_POST['fecha_nacimiento'][$i])) {
-                $errors[] = "Fecha de nacimiento requerida para " . $nombre;
+            if (!validarNombre($nombre)) {
+                $errors[] = "Nombre de hijo inválido: solo letras y espacios";
             }
-            if (empty($_POST['curso'][$i])) {
-                $errors[] = "Curso requerido para " . $nombre;
+            
+            if (empty($_POST['fecha_nacimiento'][$i]) || 
+                !validarFechaNacimiento($_POST['fecha_nacimiento'][$i])) {
+                $errors[] = "Fecha de nacimiento inválida para " . $nombre;
             }
-            if (empty($_POST['colegio'][$i])) {
-                $errors[] = "Colegio requerido para " . $nombre;
+            
+            // Validar que el colegio exista
+            if (!empty($_POST['colegio'][$i])) {
+                $stmt = $conexion->prepare("SELECT id FROM colegios WHERE id = ?");
+                $stmt->execute([$_POST['colegio'][$i]]);
+                if (!$stmt->fetch()) {
+                    $errors[] = "Colegio inválido para " . $nombre;
+                }
+            }
+            
+            // Validar que el curso exista
+            if (!empty($_POST['curso'][$i])) {
+                $stmt = $conexion->prepare("SELECT id FROM cursos WHERE id = ?");
+                $stmt->execute([$_POST['curso'][$i]]);
+                if (!$stmt->fetch()) {
+                    $errors[] = "Curso inválido para " . $nombre;
+                }
             }
         }
     }
