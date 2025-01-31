@@ -6,13 +6,14 @@ USE registro_familiar;
 CREATE TABLE padres (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    dni CHAR(8) NOT NULL UNIQUE,
+    dni CHAR(9) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefono CHAR(9) NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_dni (dni),
     INDEX idx_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 -- Crear tabla hijos
 CREATE TABLE hijos (

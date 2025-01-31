@@ -46,7 +46,15 @@ function validarFechaNacimiento($fecha) {
 }
 
 function sanitizarEmail($email) {
+    $email = eliminarAcentos($email);
+    $email = preg_replace('/[^a-zA-Z0-9@._-]/', '', $email); // Solo permitir caracteres válidos para email
     return filter_var(strtolower(trim($email)), FILTER_SANITIZE_EMAIL);
+}
+
+function eliminarAcentos($cadena) {
+    $originales = 'áéíóúüñÁÉÍÓÚÜÑ';
+    $modificadas = 'aeiouunAEIOUUN';
+    return strtr($cadena, $originales, $modificadas);
 }
 
 // Validar padre
