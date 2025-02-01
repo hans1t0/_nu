@@ -1,3 +1,7 @@
+/**
+ * Actualiza los números de identificación de cada hijo
+ * y los muestra en una etiqueta sobre cada formulario
+ */
 function actualizarNumerosHijos() {
     document.querySelectorAll('.hijo-form').forEach((form, index) => {
         let numeroSpan = form.querySelector('.hijo-numero');
@@ -10,11 +14,17 @@ function actualizarNumerosHijos() {
     });
 }
 
+/**
+ * Agrega un nuevo formulario de hijo al contenedor
+ * Clona los selectores y mantiene las opciones
+ * Inicializa los tooltips en los nuevos elementos
+ */
 function agregarHijo() {
     const container = document.getElementById('hijos-container');
     const nuevo = document.createElement('div');
     nuevo.className = 'hijo-form row g-3 mb-3';
 
+    // Plantilla HTML para el nuevo formulario de hijo
     nuevo.innerHTML = `
         <div class="col-md-3">
             <label class="form-label">
@@ -63,14 +73,19 @@ function agregarHijo() {
         </div>
     `;
 
+    // Agregar el nuevo formulario al contenedor
     container.appendChild(nuevo);
     actualizarNumerosHijos();
 
-    // Inicializar tooltips en los nuevos elementos
+    // Inicializar tooltips en los elementos nuevos
     const tooltips = nuevo.querySelectorAll('[data-bs-toggle="tooltip"]');
     tooltips.forEach(el => new bootstrap.Tooltip(el));
 }
 
+/**
+ * Maneja la eliminación de un hijo con confirmación
+ * @param {HTMLElement} button - El botón de eliminar que fue clickeado
+ */
 function eliminarHijo(button) {
     Swal.fire({
         title: '¿Eliminar hijo?',
@@ -89,16 +104,19 @@ function eliminarHijo(button) {
     });
 }
 
+// Cuando el DOM está completamente cargado
 document.addEventListener('DOMContentLoaded', function () {
+    // Inicialización inicial
     actualizarNumerosHijos();
-    // Agregar el evento click al botón
+
+    // Configurar el botón de agregar hijo
     document.getElementById('btnAgregarHijo').addEventListener('click', agregarHijo);
 
-    // Inicializar tooltips
+    // Inicializar todos los tooltips
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
 
-    // Validación del formulario
+    // Validación del formulario y envío AJAX
     const forms = document.querySelectorAll('.needs-validation');
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', function (e) {
@@ -106,15 +124,15 @@ document.addEventListener('DOMContentLoaded', function () {
             if (this.checkValidity()) {
                 const formData = new FormData(this);
 
-                // Validar primero
+                // Proceso de dos pasos: validación y registro
                 fetch('validar.php', {
                     method: 'POST',
                     body: formData
                 })
                     .then(response => response.json())
                     .then(data => {
+                        // Si la validación es exitosa, proceder con el registro
                         if (data.valid) {
-                            // Si es válido, proceder con el registro
                             return fetch('process.php', {
                                 method: 'POST',
                                 body: formData
@@ -125,6 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                     .then(response => response.json())
                     .then(data => {
+                        // Mostrar resumen si el registro fue exitoso
                         if (data.success) {
                             mostrarResumen(data);
                         } else {
@@ -132,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     })
                     .catch(error => {
+                        // Mostrar errores si algo falla
                         Swal.fire({
                             icon: 'error',
                             title: 'Error',
@@ -144,7 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Mantener la función mostrarResumen fuera para acceso global
+/**
+ * Muestra un resumen del registro exitoso usando SweetAlert2
+ * @param {Object} data - Datos del registro (padre e hijos)
+ */
 function mostrarResumen(data) {
     let resumenHtml = `
         <h4>Padre/Madre</h4>
