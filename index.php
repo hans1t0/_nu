@@ -126,7 +126,7 @@ if(isset($_GET['mensaje'])) {
                         </div>
                         <div class="card-body">
                             <div id="hijos-container">
-                                <div class="hijo-form row g-3 mb-3">
+                                <div class="hijo-form row g-3 mb-3" data-hijo-index="0">
                                     <div class="col-md-3">
                                         <label class="form-label">
                                             <i class="bi bi-person-badge"></i>
@@ -189,6 +189,18 @@ if(isset($_GET['mensaje'])) {
                                             ?>
                                         </select>
                                         <div class="invalid-feedback">Seleccione curso</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="actividades-container mt-3" style="display:none;">
+                                            <hr>
+                                            <h6 class="mb-3">
+                                                <i class="bi bi-award"></i>
+                                                Actividades disponibles:
+                                            </h6>
+                                            <div class="actividades-lista row g-3">
+                                                <!-- Las actividades se cargarán dinámicamente -->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

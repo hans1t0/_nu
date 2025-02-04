@@ -21,8 +21,10 @@ function actualizarNumerosHijos() {
  */
 function agregarHijo() {
     const container = document.getElementById('hijos-container');
+    const hijoIndex = container.querySelectorAll('.hijo-form').length;
     const nuevo = document.createElement('div');
     nuevo.className = 'hijo-form row g-3 mb-3';
+    nuevo.dataset.hijoIndex = hijoIndex;
 
     // Plantilla HTML para el nuevo formulario de hijo
     nuevo.innerHTML = `
@@ -71,11 +73,27 @@ function agregarHijo() {
                 <span class="d-none d-sm-inline">Eliminar</span>
             </button>
         </div>
+        <div class="col-12">
+            <div class="actividades-container mt-3" style="display:none;">
+                <hr>
+                <h6 class="mb-3">
+                    <i class="bi bi-award"></i>
+                    Actividades disponibles:
+                </h6>
+                <div class="actividades-lista row g-3">
+                    <!-- Las actividades se cargarán dinámicamente -->
+                </div>
+            </div>
+        </div>
     `;
 
     // Agregar el nuevo formulario al contenedor
     container.appendChild(nuevo);
     actualizarNumerosHijos();
+
+    // Añadir listener para el selector de colegio
+    const colegioSelect = nuevo.querySelector('select[name="colegio[]"]');
+    colegioSelect.addEventListener('change', () => cargarActividades(colegioSelect));
 
     // Inicializar tooltips en los elementos nuevos
     const tooltips = nuevo.querySelectorAll('[data-bs-toggle="tooltip"]');
@@ -162,6 +180,24 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('was-validated');
         });
     });
+
+    // Manejar cambios en selector de colegio
+    document.body.addEventListener('change', function (e) {
+        if (e.target.matches('select[name="colegio[]"]') ||
+            e.target.matches('select[name="curso[]"]')) {
+            const hijoForm = e.target.closest('.hijo-form');
+            const colegioSelect = hijoForm.querySelector('select[name="colegio[]"]');
+            if (colegioSelect.value) {
+                cargarActividades(colegioSelect);
+            }
+        }
+    });
+
+    // Añadir listener para el primer selector de colegio
+    const primerSelector = document.querySelector('select[name="colegio[]"]');
+    if (primerSelector) {
+        primerSelector.addEventListener('change', () => cargarActividades(primerSelector));
+    }
 });
 
 /**
@@ -204,4 +240,84 @@ function mostrarResumen(data) {
             window.location.href = 'index.php';
         }
     });
+}
+
+/**
+ * Carga las actividades disponibles para un colegio
+ * @param {HTMLSelectElement} selector - El selector de colegio que cambió
+ */
+function cargarActividades(selector) {
+    const hijoForm = selector.closest('.hijo-form');
+    const actividadesContainer = hijoForm.querySelector('.actividades-container');
+    const actividadesLista = hijoForm.querySelector('.actividades-lista');
+    const colegioId = selector.value;
+    const cursoSelect = hijoForm.querySelector('select[name="curso[]"]');
+    const cursoId = cursoSelect.value;
+
+    // Ocultar container si no hay colegio o curso seleccionado
+    if (!colegioId || !cursoId) {
+        actividadesContainer.style.display = 'none';
+        return;
+    }
+
+    // Mostrar indicador de carga
+    actividadesLista.innerHTML = '<div class="col-12 text-center"><div class="spinner-border text-primary" role="status"></div></div>';
+    actividadesContainer.style.display = 'block';
+
+    fetch(`get_actividades.php?colegio_id=${colegioId}&curso_id=${cursoId}`)
+        .then(response => response.json())
+        .then(result => {
+            if (!result.success) {
+                throw new Error(result.error || 'Error al cargar actividades');
+            }
+
+            const actividades = result.data;
+
+            if (!actividades || actividades.length === 0) {
+                actividadesLista.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            No hay actividades disponibles para ${result.nivel}
+                        </div>
+                    </div>`;
+                return;
+            }
+
+            actividadesLista.innerHTML = actividades.map(act => `
+                <div class="col-md-6 mb-2">
+                    <div class="card h-100 ${act.cupo_lleno ? 'bg-light' : ''}">
+                        <div class="card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" 
+                                       name="actividades[${hijoForm.dataset.hijoIndex}][]" 
+                                       value="${act.id}" 
+                                       id="act-${act.id}-${hijoForm.dataset.hijoIndex}"
+                                       ${act.cupo_lleno ? 'disabled' : ''}>
+                                <label class="form-check-label ${act.cupo_lleno ? 'text-muted' : ''}" 
+                                       for="act-${act.id}-${hijoForm.dataset.hijoIndex}">
+                                    <strong>${act.nombre}</strong>
+                                    <div class="text-muted small">
+                                        <div>${act.horario}</div>
+                                        <div>Precio: ${act.precio}€</div>
+                                        <div>Cupos: ${act.cupo_actual}/${act.cupo_maximo} 
+                                             ${act.cupo_lleno ? '(COMPLETO)' : ''}</div>
+                                        <div class="text-info">${act.duracion}</div>
+                                        <div class="badge bg-secondary mt-1">${act.rango_grados}</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            actividadesLista.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        Error al cargar actividades: ${error.message}
+                    </div>
+                </div>`;
+        });
 }

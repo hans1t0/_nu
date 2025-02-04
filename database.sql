@@ -87,3 +87,111 @@ INSERT INTO colegios (nombre) VALUES
 ('Faro'),
 ('Mediterraneo'),
 ('Voramar');
+
+-- Tabla de actividades
+CREATE TABLE actividades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(6,2) NOT NULL,
+    duracion VARCHAR(50),
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Agregar campo de nivel requerido a las actividades
+ALTER TABLE actividades 
+ADD COLUMN nivel_requerido ENUM('Infantil', 'Primaria') NOT NULL AFTER nombre;
+
+-- Agregar columnas para grado mínimo y máximo en actividades
+ALTER TABLE actividades 
+ADD COLUMN grado_minimo TINYINT NOT NULL DEFAULT 1 AFTER nivel_requerido,
+ADD COLUMN grado_maximo TINYINT NOT NULL DEFAULT 6 AFTER grado_minimo;
+
+-- Actualizar las actividades existentes con sus niveles
+UPDATE actividades SET nivel_requerido = 
+    CASE nombre
+        WHEN 'Fútbol' THEN 'Primaria'
+        WHEN 'Baloncesto' THEN 'Primaria'
+        WHEN 'Voleibol' THEN 'Primaria'
+        WHEN 'Ajedrez' THEN 'Infantil'
+        WHEN 'Atletismo' THEN 'Primaria'
+    END;
+
+-- Actualizar actividades con rangos de grado específicos
+UPDATE actividades SET 
+    grado_minimo = CASE nombre
+        WHEN 'Fútbol' THEN 3         -- 3° a 6° Primaria
+        WHEN 'Baloncesto' THEN 3     -- 3° a 6° Primaria
+        WHEN 'Voleibol' THEN 4       -- 4° a 6° Primaria
+        WHEN 'Ajedrez' THEN 2        -- 2° Infantil a 3° Infantil
+        WHEN 'Atletismo' THEN 3      -- 3° a 6° Primaria
+        WHEN 'Juegos Predeportivos' THEN 1  -- Todo Infantil
+        WHEN 'Psicomotricidad' THEN 1       -- 1° y 2° Infantil
+    END,
+    grado_maximo = CASE nombre
+        WHEN 'Fútbol' THEN 6
+        WHEN 'Baloncesto' THEN 6
+        WHEN 'Voleibol' THEN 6
+        WHEN 'Ajedrez' THEN 3
+        WHEN 'Atletismo' THEN 6
+        WHEN 'Juegos Predeportivos' THEN 3
+        WHEN 'Psicomotricidad' THEN 2
+    END;
+
+-- Tabla de relación entre colegios y actividades
+CREATE TABLE colegio_actividad (
+    id_colegio INT NOT NULL,
+    id_actividad INT NOT NULL,
+    horario VARCHAR(100) NOT NULL,
+    cupo_maximo INT NOT NULL DEFAULT 20,
+    cupo_actual INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (id_colegio) REFERENCES colegios(id),
+    FOREIGN KEY (id_actividad) REFERENCES actividades(id),
+    PRIMARY KEY (id_colegio, id_actividad)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Tabla de inscripciones a actividades
+CREATE TABLE inscripciones_actividad (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_hijo INT NOT NULL,
+    id_colegio INT NOT NULL,
+    id_actividad INT NOT NULL,
+    fecha_inscripcion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_hijo) REFERENCES hijos(id),
+    FOREIGN KEY (id_colegio, id_actividad) REFERENCES colegio_actividad(id_colegio, id_actividad)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Limpiar y reinsertar datos de ejemplo
+TRUNCATE TABLE inscripciones_actividad;
+TRUNCATE TABLE colegio_actividad;
+TRUNCATE TABLE actividades;
+
+-- Insertar actividades de ejemplo
+INSERT INTO actividades (nombre, nivel_requerido, descripcion, precio, duracion) VALUES
+('Fútbol', 'Primaria', 'Entrenamiento y práctica de fútbol', 30.00, '2 horas semanales'),
+('Baloncesto', 'Primaria', 'Entrenamiento y práctica de baloncesto', 30.00, '2 horas semanales'),
+('Voleibol', 'Primaria', 'Entrenamiento y práctica de voleibol', 30.00, '2 horas semanales'),
+('Ajedrez', 'Infantil', 'Clases y práctica de ajedrez', 25.00, '1 hora semanal'),
+('Atletismo', 'Primaria', 'Entrenamiento de atletismo', 30.00, '2 horas semanales'),
+('Juegos Predeportivos', 'Infantil', 'Iniciación al deporte', 25.00, '2 horas semanales'),
+('Psicomotricidad', 'Infantil', 'Desarrollo motor', 25.00, '1 hora semanal');
+
+-- Asignar actividades a colegios con horarios específicos
+INSERT INTO colegio_actividad (id_colegio, id_actividad, horario, cupo_maximo, cupo_actual) 
+SELECT 
+    c.id, 
+    a.id,
+    CONCAT(
+        CASE a.id % 2 
+            WHEN 0 THEN 'Martes y Jueves '
+            ELSE 'Lunes y Miércoles '
+        END,
+        CASE 
+            WHEN c.id % 2 = 0 THEN '16:00-17:00'
+            ELSE '17:00-18:00'
+        END
+    ),
+    20,
+    0
+FROM colegios c 
+CROSS JOIN actividades a;

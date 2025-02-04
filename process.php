@@ -57,6 +57,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':fecha' => sanitizarDatos($_POST['fecha_nacimiento'][$i])
                 ]);
                 
+                $id_hijo = $conexion->lastInsertId();
+                
+                // Procesar inscripciones a actividades
+                if (isset($_POST['actividades'][$i]) && is_array($_POST['actividades'][$i])) {
+                    $stmt_actividad = $conexion->prepare("
+                        INSERT INTO inscripciones_actividad (id_hijo, id_colegio, id_actividad)
+                        VALUES (:id_hijo, :id_colegio, :id_actividad)
+                    ");
+                    
+                    foreach ($_POST['actividades'][$i] as $id_actividad) {
+                        $stmt_actividad->execute([
+                            ':id_hijo' => $id_hijo,
+                            ':id_colegio' => $_POST['colegio'][$i],
+                            ':id_actividad' => $id_actividad
+                        ]);
+                        
+                        // Actualizar cupo actual
+                        $conexion->prepare("
+                            UPDATE colegio_actividad 
+                            SET cupo_actual = cupo_actual + 1
+                            WHERE id_colegio = ? AND id_actividad = ?
+                        ")->execute([$_POST['colegio'][$i], $id_actividad]);
+                    }
+                }
+                
                 // Obtener datos para el resumen
                 $stmt_datos = $conexion->query("
                     SELECT h.nombre, c.nombre as colegio, cu.nombre as curso
