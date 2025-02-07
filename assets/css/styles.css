@@ -1,0 +1,95 @@
+body {
+  background-color: #e6f3ff;
+  background-image: linear-gradient(120deg, #e6f3ff 0%, #fff 100%);
+}
+.card {
+  border: none;
+  border-radius: 15px;
+}
+.card-header {
+  border-radius: 15px 15px 0 0 !important;
+}
+.card-header.bg-primary {
+  background: #4a90e2 !important;
+  background-image: linear-gradient(45deg, #4a90e2 0%, #357abd 100%);
+}
+.card-header.bg-success {
+  background: #28b463 !important;
+  background-image: linear-gradient(45deg, #28b463 0%, #1d8348 100%);
+}
+.hijo-form {
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid #e8f5e9;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.hijo-form:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.btn-outline-primary {
+  border-width: 2px;
+  border-radius: 25px;
+  padding: 8px 20px;
+}
+.btn-outline-primary:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+.btn-eliminar {
+  color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 25px;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+}
+.btn-eliminar:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transform: scale(1.05);
+}
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 2px solid #e8f5e9;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+}
+.btn-primary {
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-image: linear-gradient(45deg, #4a90e2 0%, #357abd 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.bi-sun-fill {
+  color: #ffc107 !important;
+  filter: drop-shadow(0 0 2px rgba(255, 193, 7, 0.5));
+}
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: #28b463;
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+}
+.invalid-feedback {
+  font-size: 0.875em;
+  color: #dc3545;
+}
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

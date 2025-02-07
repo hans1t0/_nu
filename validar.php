@@ -1,171 +1,142 @@
 <?php
-/**
- * Validación de datos del formulario de registro familiar
- * Valida tanto los datos del padre/madre como de los hijos
- */
-
-include('conexion.php');
+session_start();
 header('Content-Type: application/json');
 
-$errors = [];
-$data = [];
+// Configuración BD
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'guarderia_matinal');
+define('DB_USER', 'root');
+define('DB_PASS', 'hans');
 
-/**
- * Valida un documento de identidad (DNI o NIE)
- * @param string $documento El documento a validar
- * @return boolean true si el documento es válido, false en caso contrario
- */
-function validarDocumentoIdentidad($documento) {
-    $documento = strtoupper(trim($documento));
-    
-    // Patrones de validación
-    $patronDNI = "/^[0-9]{8}[A-Z]$/";
-    $patronNIE = "/^[XYZ][0-9]{7}[A-Z]$/";
-    
-    // Secuencia de letras válidas para el cálculo
-    $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-    
-    // Validación de DNI
-    if (preg_match($patronDNI, $documento)) {
-        $numero = substr($documento, 0, 8);
-        $letra = substr($documento, 8, 1);
-        return ($letras[$numero % 23] == $letra);
-    } 
-    // Validación de NIE
-    elseif (preg_match($patronNIE, $documento)) {
-        // Convertir primera letra a número: X=0, Y=1, Z=2
-        $primera = str_replace(['X','Y','Z'], [0,1,2], $documento[0]);
-        $numero = $primera . substr($documento, 1, 7);
-        $letra = substr($documento, 8, 1);
-        return ($letras[$numero % 23] == $letra);
-    }
-    
-    return false;
+// Función para sanitizar inputs
+function sanitize($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
 }
 
-/**
- * Valida que un nombre contenga solo caracteres permitidos
- * @param string $nombre El nombre a validar
- * @return boolean true si el nombre es válido
- */
-function validarNombre($nombre) {
-    return preg_match('/^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]{2,100}$/', $nombre);
+// Validar token CSRF
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    die(json_encode(['error' => 'Token CSRF inválido']));
 }
 
-/**
- * Valida que una fecha de nacimiento esté en un rango aceptable
- * @param string $fecha La fecha a validar
- * @return boolean true si la fecha es válida
- */
-function validarFechaNacimiento($fecha) {
-    $fecha = strtotime($fecha);
-    $minDate = strtotime('-18 years'); // Edad mínima para padres
-    $maxDate = strtotime('-2 years');  // Edad mínima para niños
-    return ($fecha && $fecha <= $maxDate && $fecha >= $minDate);
-}
-
-/**
- * Sanitiza y valida un email
- * @param string $email El email a sanitizar
- * @return string El email sanitizado
- */
-function sanitizarEmail($email) {
-    $email = eliminarAcentos($email);
-    $email = preg_replace('/[^a-zA-Z0-9@._-]/', '', $email);
-    return filter_var(strtolower(trim($email)), FILTER_SANITIZE_EMAIL);
-}
-
-/**
- * Elimina acentos y caracteres especiales
- * @param string $cadena La cadena a procesar
- * @return string La cadena sin acentos
- */
-function eliminarAcentos($cadena) {
-    $originales = 'áéíóúüñÁÉÍÓÚÜÑ';
-    $modificadas = 'aeiouunAEIOUUN';
-    return strtr($cadena, $originales, $modificadas);
-}
-
-// Validación de datos del padre/madre
-if (empty($_POST['nombre_completo']) || !validarNombre($_POST['nombre_completo'])) {
-    $errors[] = "El nombre solo debe contener letras y espacios (2-100 caracteres)";
-}
-
-if (empty($_POST['dni'])) {
-    $errors[] = "Documento de identidad requerido";
-} else {
-    $documento = strtoupper(trim($_POST['dni']));
-    if (!validarDocumentoIdentidad($documento)) {
-        $errors[] = "Documento de identidad inválido";
-    } else {
-        // Verificar único
-        $stmt = $conexion->prepare("SELECT id FROM padres WHERE dni = ?");
-        $stmt->execute([$documento]);
-        if ($stmt->fetch()) {
-            $errors[] = "El documento de identidad ya está registrado";
-        }
+// Validar campos obligatorios del responsable
+$required = ['nombre', 'dni', 'email', 'telefono'];
+foreach ($required as $field) {
+    if (empty($_POST[$field])) {
+        die(json_encode(['error' => "El campo $field es obligatorio"]));
     }
 }
 
-if (empty($_POST['email'])) {
-    $errors[] = "Email requerido";
-} else {
-    $email = sanitizarEmail($_POST['email']);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Email inválido";
-    } else {
-        // Verificar email único
-        $stmt = $conexion->prepare("SELECT id FROM padres WHERE email = ?");
-        $stmt->execute([$email]);
-        if ($stmt->fetch()) {
-            $errors[] = "El email ya está registrado";
-        }
-    }
+// Sanitizar datos del responsable
+$responsable = [
+    'nombre' => sanitize($_POST['nombre']),
+    'dni' => sanitize($_POST['dni']),
+    'email' => sanitize($_POST['email']),
+    'telefono' => sanitize($_POST['telefono']),
+    'observaciones' => isset($_POST['observaciones']) ? sanitize($_POST['observaciones']) : null
+];
+
+// Validar formato DNI/NIE
+if (!preg_match('/^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]$/i', $responsable['dni']) &&
+    !preg_match('/^[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i', $responsable['dni'])) {
+    die(json_encode(['error' => 'Formato de DNI/NIE inválido']));
+}
+
+// Validar email
+if (!filter_var($responsable['email'], FILTER_VALIDATE_EMAIL)) {
+    die(json_encode(['error' => 'Email inválido']));
 }
 
 // Validar teléfono
-if (!preg_match('/^[6-9][0-9]{8}$/', $_POST['telefono'])) {
-    $errors[] = "Teléfono inválido (debe empezar por 6-9 y tener 9 dígitos)";
+if (!preg_match('/^[0-9]{9}$/', $responsable['telefono'])) {
+    die(json_encode(['error' => 'Formato de teléfono inválido']));
 }
 
-// Validación de datos de los hijos y sus relaciones
-if (!empty($_POST['nombre_hijo'])) {
-    foreach ($_POST['nombre_hijo'] as $i => $nombre) {
-        if (!empty($nombre)) {
-            // Validar nombre del hijo
-            if (!validarNombre($nombre)) {
-                $errors[] = "Nombre de hijo inválido: solo letras y espacios";
-            }
-            
-            // Validar fecha de nacimiento
-            if (empty($_POST['fecha_nacimiento'][$i]) || 
-                !validarFechaNacimiento($_POST['fecha_nacimiento'][$i])) {
-                $errors[] = "Fecha de nacimiento inválida para " . $nombre;
-            }
-            
-            // Validar existencia del colegio en la base de datos
-            if (!empty($_POST['colegio'][$i])) {
-                $stmt = $conexion->prepare("SELECT id FROM colegios WHERE id = ?");
-                $stmt->execute([$_POST['colegio'][$i]]);
-                if (!$stmt->fetch()) {
-                    $errors[] = "Colegio inválido para " . $nombre;
-                }
-            }
-            
-            // Validar existencia del curso en la base de datos
-            if (!empty($_POST['curso'][$i])) {
-                $stmt = $conexion->prepare("SELECT id FROM cursos WHERE id = ?");
-                $stmt->execute([$_POST['curso'][$i]]);
-                if (!$stmt->fetch()) {
-                    $errors[] = "Curso inválido para " . $nombre;
-                }
-            }
+// Validar que hay al menos un hijo
+if (!isset($_POST['hijo']) || !is_array($_POST['hijo'])) {
+    die(json_encode(['error' => 'Debe añadir al menos un hijo']));
+}
+
+try {
+    $pdo = new PDO(
+        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+        DB_USER,
+        DB_PASS,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+
+    // Iniciar transacción
+    $pdo->beginTransaction();
+
+    // Insertar responsable
+    $stmt = $pdo->prepare("
+        INSERT INTO responsables (nombre, dni, email, telefono, observaciones)
+        VALUES (:nombre, :dni, :email, :telefono, :observaciones)
+    ");
+    $stmt->execute($responsable);
+    $responsableId = $pdo->lastInsertId();
+
+    // Procesar cada hijo
+    foreach ($_POST['hijo'] as $hijo) {
+        // Validar campos obligatorios del hijo
+        if (empty($hijo['nombre']) || empty($hijo['fecha_nacimiento']) || 
+            empty($hijo['colegio']) || empty($hijo['curso']) || 
+            empty($hijo['hora_entrada'])) {
+            throw new Exception('Todos los campos del hijo son obligatorios');
         }
-    }
-}
 
-// Devolver resultado de la validación
-echo json_encode([
-    'valid' => empty($errors),
-    'errors' => $errors
-]);
+        // Obtener ID del colegio
+        $stmtColegio = $pdo->prepare("SELECT id FROM colegios WHERE codigo = ?");
+        $stmtColegio->execute([$hijo['colegio']]);
+        $colegioId = $stmtColegio->fetchColumn();
+
+        if (!$colegioId) {
+            throw new Exception('Colegio no válido');
+        }
+
+        // Validar y convertir hora
+        if (!preg_match('/^([0-9]{1,2}):([0-9]{2})$/', $hijo['hora_entrada'])) {
+            throw new Exception('Formato de hora inválido');
+        }
+
+        // Insertar hijo
+        $stmt = $pdo->prepare("
+            INSERT INTO hijos (
+                responsable_id, nombre, fecha_nacimiento, colegio_id,
+                curso, hora_entrada, desayuno
+            ) VALUES (
+                :responsable_id, :nombre, :fecha_nacimiento, :colegio_id,
+                :curso, :hora_entrada, :desayuno
+            )
+        ");
+
+        $stmt->execute([
+            'responsable_id' => $responsableId,
+            'nombre' => sanitize($hijo['nombre']),
+            'fecha_nacimiento' => sanitize($hijo['fecha_nacimiento']),
+            'colegio_id' => $colegioId,
+            'curso' => sanitize($hijo['curso']),
+            'hora_entrada' => sanitize($hijo['hora_entrada']),
+            'desayuno' => ($hijo['colegio'] === 'ALMADRABA' && 
+                          isset($hijo['desayuno']) && 
+                          $hijo['desayuno'] === 'con') ? 1 : 0
+        ]);
+    }
+
+    // Confirmar transacción
+    $pdo->commit();
+
+    echo json_encode([
+        'success' => true,
+        'message' => 'Inscripción realizada correctamente',
+        'id' => $responsableId
+    ]);
+
+} catch (Exception $e) {
+    // Revertir transacción en caso de error
+    if (isset($pdo)) {
+        $pdo->rollBack();
+    }
+    echo json_encode([
+        'error' => 'Error al procesar la inscripción: ' . $e->getMessage()
+    ]);
+}

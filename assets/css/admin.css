@@ -1,0 +1,55 @@
+.sidebar {
+  min-height: 100vh;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.stats {
+  color: #fff;
+}
+
+.stat-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.stat-item i {
+  margin-right: 8px;
+}
+
+.table {
+  font-size: 0.9rem;
+}
+
+.badge {
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+}
+
+.badge.bg-success {
+  font-size: 0.85rem;
+  display: inline-block;
+  line-height: 1.4;
+}
+
+.badge.bg-success small {
+  display: block;
+  opacity: 0.9;
+  font-size: 0.8em;
+}
+
+.btn-info {
+  color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    min-height: auto;
+  }
+}

@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /assets/
-Disallow: /process.php
-Disallow: /validar.php
-Disallow: /conexion.php
-
-Sitemap: https://tudominio.com/sitemap.xml
