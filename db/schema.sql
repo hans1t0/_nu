@@ -1,4 +1,3 @@
-
 -- Crear base de datos
 CREATE DATABASE IF NOT EXISTS guarderia_matinal DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE guarderia_matinal;
@@ -10,6 +9,8 @@ CREATE TABLE responsables (
     dni VARCHAR(9) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL,
     telefono VARCHAR(15) NOT NULL,
+    forma_pago ENUM('DOMICILIACION', 'TRANSFERENCIA', 'COORDINADOR') NOT NULL,
+    iban VARCHAR(24),
     observaciones TEXT,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_dni (dni),

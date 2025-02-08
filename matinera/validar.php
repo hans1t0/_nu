@@ -19,7 +19,7 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
 }
 
 // Validar campos obligatorios del responsable
-$required = ['nombre', 'dni', 'email', 'telefono'];
+$required = ['nombre', 'dni', 'email', 'telefono', 'forma_pago'];
 foreach ($required as $field) {
     if (empty($_POST[$field])) {
         die(json_encode(['error' => "El campo $field es obligatorio"]));
@@ -32,6 +32,7 @@ $responsable = [
     'dni' => sanitize($_POST['dni']),
     'email' => sanitize($_POST['email']),
     'telefono' => sanitize($_POST['telefono']),
+    'forma_pago' => sanitize($_POST['forma_pago']),
     'observaciones' => isset($_POST['observaciones']) ? sanitize($_POST['observaciones']) : null
 ];
 
@@ -49,6 +50,24 @@ if (!filter_var($responsable['email'], FILTER_VALIDATE_EMAIL)) {
 // Validar teléfono
 if (!preg_match('/^[0-9]{9}$/', $responsable['telefono'])) {
     die(json_encode(['error' => 'Formato de teléfono inválido']));
+}
+
+// Validar forma de pago
+if (!in_array($responsable['forma_pago'], ['DOMICILIACION', 'TRANSFERENCIA', 'COORDINADOR'])) {
+    die(json_encode(['error' => 'Forma de pago no válida']));
+}
+
+// Validar IBAN si es domiciliación
+if ($responsable['forma_pago'] === 'DOMICILIACION') {
+    if (empty($_POST['iban'])) {
+        die(json_encode(['error' => 'El IBAN es obligatorio para domiciliación bancaria']));
+    }
+    $responsable['iban'] = sanitize($_POST['iban']);
+    if (!preg_match('/^ES[0-9]{2}[0-9]{20}$/', $responsable['iban'])) {
+        die(json_encode(['error' => 'Formato de IBAN inválido']));
+    }
+} else {
+    $responsable['iban'] = null;
 }
 
 // Validar que hay al menos un hijo
@@ -69,8 +88,8 @@ try {
 
     // Insertar responsable
     $stmt = $pdo->prepare("
-        INSERT INTO responsables (nombre, dni, email, telefono, observaciones)
-        VALUES (:nombre, :dni, :email, :telefono, :observaciones)
+        INSERT INTO responsables (nombre, dni, email, telefono, forma_pago, iban, observaciones)
+        VALUES (:nombre, :dni, :email, :telefono, :forma_pago, :iban, :observaciones)
     ");
     $stmt->execute($responsable);
     $responsableId = $pdo->lastInsertId();
@@ -124,12 +143,11 @@ try {
 
     // Confirmar transacción
     $pdo->commit();
-
-    echo json_encode([
-        'success' => true,
-        'message' => 'Inscripción realizada correctamente',
-        'id' => $responsableId
-    ]);
+    
+    // Guardar ID en sesión y redirigir
+    $_SESSION['inscripcion_id'] = $responsableId;
+    header('Location: ../includes/ver_detalles.php');
+    exit;
 
 } catch (Exception $e) {
     // Revertir transacción en caso de error

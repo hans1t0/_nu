@@ -1,0 +1,1460 @@
+[2025-02-07 20:35:31] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:35:31] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:35:31] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:35:31] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:35:31] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:40:09] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:40:09] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:40:09] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:40:09] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:40:09] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:44:03] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:44:03] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:44:03] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:44:03] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:44:03] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:46:37] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:46:37] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:46:37] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:46:37] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:46:37] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:52:47] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:52:47] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:52:47] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:52:47] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:52:47] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:58:43] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:58:43] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:58:43] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:58:43] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:58:43] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:58:52] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:58:52] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:58:52] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:58:52] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:58:52] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 20:59:22] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 20:59:22] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 20:59:22] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 20:59:22] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 20:59:22] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:00:31] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:00:31] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:00:31] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:00:31] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:00:31] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:09:43] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:09:43] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:09:43] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:09:43] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:09:43] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:19:44] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:19:44] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:19:44] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:19:44] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:19:44] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:19:50] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:19:50] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:19:50] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:19:50] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:19:50] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:19:52] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:19:52] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:19:52] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:19:52] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:19:52] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:19:59] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:19:59] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:19:59] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:19:59] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:19:59] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:20:05] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:20:05] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:20:05] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:20:05] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:20:05] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:20:30] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:20:30] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:20:30] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:20:30] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:20:30] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:20:34] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:20:34] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:20:34] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:20:34] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:20:34] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:20:45] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:20:45] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:20:45] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:20:45] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:20:45] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:21:36] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:21:36] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:21:36] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:21:36] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:21:36] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:22:06] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:22:06] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:22:06] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:22:06] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:22:06] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:23:01] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:23:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:23:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:23:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:23:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:23:05] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:23:05] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:23:05] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:23:05] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:23:05] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:25:48] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:25:48] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:25:48] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:25:48] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:25:48] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:26:01] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:26:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:26:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:26:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:26:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:26:10] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:26:10] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:26:10] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:26:10] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:26:10] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:28:00] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:28:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:28:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:28:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:28:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:28:04] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:28:04] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:28:04] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:28:04] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:28:04] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:28:27] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:28:27] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:28:27] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:28:27] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:28:27] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:28:29] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:28:29] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:28:29] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:28:29] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:28:29] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:28:30] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:28:30] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:28:30] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:28:30] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:28:30] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:18] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:18] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:18] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:18] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:18] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:28] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:28] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:28] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:28] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:28] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:29] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:29] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:29] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:29] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:29] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:35] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:35] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:35] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:35] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:35] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:48] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:48] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:48] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:48] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:48] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:31:52] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:31:52] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:31:52] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:31:52] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:31:52] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:32:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:32:02] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:32:02] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:32:02] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:32:02] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:32:02] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:34:11] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:34:11] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:34:11] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:34:11] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:34:11] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:34:16] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:34:16] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:34:16] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:34:16] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:34:16] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:36:46] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:36:46] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:36:46] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:36:46] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:36:46] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:39:43] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:39:43] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:39:43] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:39:43] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:39:43] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:39:53] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:40:06] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:40:29] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:40:30] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:41:58] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:41:58] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:41:58] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:41:58] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:41:58] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:01] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:01] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:01] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:01] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:01] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:05] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:10] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:10] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:10] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:10] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:10] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:46] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:46] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:46] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:46] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:47] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:54] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:54] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:54] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:54] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:54] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:42:58] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:43:04] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:43:05] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:43:05] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:43:05] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:43:05] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:45:54] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:45:54] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:45:54] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:45:54] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:45:54] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:45:57] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:45:57] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:45:57] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:45:57] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:45:57] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:45:59] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:45:59] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:45:59] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:45:59] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:45:59] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:02] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:02] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:02] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:02] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:02] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:06] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:09] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:09] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:09] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:09] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:09] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 21:46:48] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 23:26:40] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 23:26:40] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 23:26:40] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 23:26:40] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 23:26:40] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 23:26:59] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 23:26:59] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 23:26:59] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 23:26:59] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 23:26:59] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}
+[2025-02-07 23:27:02] DEBUG - Tabla verificada
+Context: {
+    "table": "tutores"
+}
+[2025-02-07 23:27:02] DEBUG - Tabla verificada
+Context: {
+    "table": "alumnos"
+}
+[2025-02-07 23:27:02] DEBUG - Tabla verificada
+Context: {
+    "table": "centros"
+}
+[2025-02-07 23:27:02] DEBUG - Tabla verificada
+Context: {
+    "table": "horarios"
+}
+[2025-02-07 23:27:02] DEBUG - Tabla verificada
+Context: {
+    "table": "inscripciones"
+}

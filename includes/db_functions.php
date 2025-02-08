@@ -14,10 +14,34 @@ function getConnection() {
     return $pdo;
 }
 
+function calcularPrecio($hora_entrada, $desayuno, $codigo_colegio) {
+    if ($codigo_colegio === 'ALMADRABA') {
+        if ($hora_entrada === '07:30:00') {
+            return $desayuno ? 55 : 45;
+        } elseif ($hora_entrada === '08:00:00') {
+            return $desayuno ? 45 : 35;
+        } elseif ($hora_entrada === '08:30:00') {
+            return 25;
+        }
+    } else {
+        // Precios para el resto de colegios
+        if ($hora_entrada === '07:30:00') {
+            return 45;
+        } elseif ($hora_entrada === '08:00:00') {
+            return 35;
+        } elseif ($hora_entrada === '08:30:00') {
+            return 25;
+        }
+    }
+    return 0;
+}
+
 function getInscripciones($filtros = []) {
     $pdo = getConnection();
     $sql = "SELECT r.id, r.nombre as responsable, r.dni, h.nombre as hijo, 
-            c.nombre as colegio, h.curso, h.hora_entrada, h.desayuno
+            c.nombre as colegio, c.codigo as codigo_colegio, h.curso, 
+            h.hora_entrada, h.desayuno,
+            (SELECT COUNT(*) FROM hijos WHERE responsable_id = r.id) as total_hijos
             FROM responsables r
             JOIN hijos h ON h.responsable_id = r.id
             JOIN colegios c ON h.colegio_id = c.id
@@ -44,7 +68,14 @@ function getInscripciones($filtros = []) {
     
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $inscripciones = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    // Calcular precios para todos los colegios
+    foreach ($inscripciones as &$i) {
+        $i['precio'] = calcularPrecio($i['hora_entrada'], $i['desayuno'], $i['codigo_colegio']);
+    }
+    
+    return $inscripciones;
 }
 
 function getEstadisticas() {
@@ -72,4 +103,25 @@ function getCursos() {
         '5PRIM' => '5º Primaria',
         '6PRIM' => '6º Primaria'
     ];
+}
+
+function contarInscripcionesPorColegio($codigo_colegio) {
+    $pdo = getConnection();
+    $stmt = $pdo->prepare("
+        SELECT COUNT(*) FROM hijos h 
+        JOIN colegios c ON h.colegio_id = c.id 
+        WHERE c.codigo = ?
+    ");
+    $stmt->execute([$codigo_colegio]);
+    return $stmt->fetchColumn();
+}
+
+function contarHijosPorPadre($id_responsable) {
+    $pdo = getConnection();
+    $stmt = $pdo->prepare("
+        SELECT COUNT(*) FROM hijos 
+        WHERE responsable_id = ?
+    ");
+    $stmt->execute([$id_responsable]);
+    return $stmt->fetchColumn();
 }

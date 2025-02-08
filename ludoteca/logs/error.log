@@ -1,0 +1,508 @@
+[2025-02-07 20:35:31] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "fc9afe9981dfa93aadef9c0dcacbea600aa4017d4463a3dc7f23355cb87ed076",
+        "nombre": "hans cok",
+        "dni": "x7242535L",
+        "email": "hans1to@me.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "coordinador",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "lucas",
+                "apellidos": "cok",
+                "fecha_nacimiento": "2015-01-16",
+                "centro": "1",
+                "curso": "4PRI",
+                "horario": "2",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 20:35:31] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "lucas",
+        "apellidos": "cok",
+        "fecha_nacimiento": "2015-01-16",
+        "centro": "1",
+        "curso": "4PRI",
+        "horario": "2",
+        "alergias": ""
+    }
+]
+[2025-02-07 20:35:31] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "hans cok",
+    "dni": "x7242535L",
+    "email": "hans1to@me.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "coordinador",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 20:35:31] Error de base de datos
+--------------------------------------------------
+{
+    "message": "Error al insertar tutor: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'forma_pago' in 'field list'",
+    "code": 0,
+    "file": "\/Users\/jancok\/Sites\/localhost\/_nu3\/ludoteca\/validar.php",
+    "line": 121,
+    "trace": "#0 {main}"
+}
+[2025-02-07 20:40:09] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "a4a0d40ac02e6c34637d8cb266900b189e154f5dbb5c18d00f88f6f641c84025",
+        "nombre": "hans cok",
+        "dni": "x7242535L",
+        "email": "hans1to@me.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "coordinador",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "lucas",
+                "apellidos": "cok",
+                "fecha_nacimiento": "2015-01-16",
+                "centro": "1",
+                "curso": "4PRI",
+                "horario": "2",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 20:40:09] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "lucas",
+        "apellidos": "cok",
+        "fecha_nacimiento": "2015-01-16",
+        "centro": "1",
+        "curso": "4PRI",
+        "horario": "2",
+        "alergias": ""
+    }
+]
+[2025-02-07 20:40:09] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "hans cok",
+    "dni": "x7242535L",
+    "email": "hans1to@me.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "coordinador",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 20:40:09] DEBUG - Tutor insertado correctamente
+--------------------------------------------------
+{
+    "tutor_id": "1"
+}
+[2025-02-07 20:40:09] DEBUG - Iniciando proceso de hijos
+--------------------------------------------------
+{
+    "num_hijos": 1
+}
+[2025-02-07 20:40:09] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 0,
+    "datos": {
+        "nombre": "lucas",
+        "apellidos": "cok",
+        "fecha_nacimiento": "2015-01-16",
+        "centro_id": "1",
+        "curso": "4PRI",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}
+[2025-02-07 20:44:03] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "7b3db4d3af46b0448ee790dfbb09ce3b8ad57511825ed748e98bdd786d33d4f8",
+        "nombre": "Papa Pig",
+        "dni": "x7242535c",
+        "email": "hans_cok@hotmail.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "transferencia",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "jorge",
+                "apellidos": "pig",
+                "fecha_nacimiento": "2011-11-11",
+                "centro": "2",
+                "curso": "1INF",
+                "horario": "2",
+                "alergias": ""
+            },
+            {
+                "nombre": "pepa",
+                "apellidos": "pig",
+                "fecha_nacimiento": "2012-12-12",
+                "centro": "1",
+                "curso": "2INF",
+                "horario": "2",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 20:44:03] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "jorge",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2011-11-11",
+        "centro": "2",
+        "curso": "1INF",
+        "horario": "2",
+        "alergias": ""
+    },
+    {
+        "nombre": "pepa",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2012-12-12",
+        "centro": "1",
+        "curso": "2INF",
+        "horario": "2",
+        "alergias": ""
+    }
+]
+[2025-02-07 20:44:03] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "Papa Pig",
+    "dni": "x7242535c",
+    "email": "hans_cok@hotmail.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "transferencia",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 20:44:03] DEBUG - Tutor insertado correctamente
+--------------------------------------------------
+{
+    "tutor_id": "2"
+}
+[2025-02-07 20:44:03] DEBUG - Iniciando proceso de hijos
+--------------------------------------------------
+{
+    "num_hijos": 2
+}
+[2025-02-07 20:44:03] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 0,
+    "datos": {
+        "nombre": "jorge",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2011-11-11",
+        "centro_id": "2",
+        "curso": "1INF",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}
+[2025-02-07 20:44:03] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 1,
+    "datos": {
+        "nombre": "pepa",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2012-12-12",
+        "centro_id": "1",
+        "curso": "2INF",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}
+[2025-02-07 20:46:37] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "7b3db4d3af46b0448ee790dfbb09ce3b8ad57511825ed748e98bdd786d33d4f8",
+        "nombre": "Papa Pig",
+        "dni": "x7242535c",
+        "email": "hans_cok@hotmail.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "transferencia",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "jorge",
+                "apellidos": "pig",
+                "fecha_nacimiento": "2011-11-11",
+                "centro": "2",
+                "curso": "1INF",
+                "horario": "2",
+                "alergias": ""
+            },
+            {
+                "nombre": "pepa",
+                "apellidos": "pig",
+                "fecha_nacimiento": "2012-12-12",
+                "centro": "1",
+                "curso": "2INF",
+                "horario": "2",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 20:46:37] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "jorge",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2011-11-11",
+        "centro": "2",
+        "curso": "1INF",
+        "horario": "2",
+        "alergias": ""
+    },
+    {
+        "nombre": "pepa",
+        "apellidos": "pig",
+        "fecha_nacimiento": "2012-12-12",
+        "centro": "1",
+        "curso": "2INF",
+        "horario": "2",
+        "alergias": ""
+    }
+]
+[2025-02-07 20:46:37] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "Papa Pig",
+    "dni": "x7242535c",
+    "email": "hans_cok@hotmail.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "transferencia",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 20:46:37] Error de base de datos
+--------------------------------------------------
+{
+    "message": "Error al insertar tutor: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'x7242535c' for key 'dni'",
+    "code": 0,
+    "file": "\/Users\/jancok\/Sites\/localhost\/_nu3\/ludoteca\/validar.php",
+    "line": 128,
+    "trace": "#0 {main}"
+}
+[2025-02-07 20:52:47] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "5be69f5ee3f07db19c8ab448e1c5c2b6f240a2378cf9774f6408dfe283f85f46",
+        "nombre": "Eva",
+        "dni": "12345678e",
+        "email": "hcdesign14@gmail.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "transferencia",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "cain",
+                "apellidos": "dios",
+                "fecha_nacimiento": "2011-11-11",
+                "centro": "2",
+                "curso": "1INF",
+                "horario": "2",
+                "alergias": ""
+            },
+            {
+                "nombre": "abel",
+                "apellidos": "dios",
+                "fecha_nacimiento": "0001-01-01",
+                "centro": "1",
+                "curso": "1INF",
+                "horario": "2",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 20:52:47] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "cain",
+        "apellidos": "dios",
+        "fecha_nacimiento": "2011-11-11",
+        "centro": "2",
+        "curso": "1INF",
+        "horario": "2",
+        "alergias": ""
+    },
+    {
+        "nombre": "abel",
+        "apellidos": "dios",
+        "fecha_nacimiento": "0001-01-01",
+        "centro": "1",
+        "curso": "1INF",
+        "horario": "2",
+        "alergias": ""
+    }
+]
+[2025-02-07 20:52:47] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "Eva",
+    "dni": "12345678e",
+    "email": "hcdesign14@gmail.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "transferencia",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 20:52:47] DEBUG - Tutor insertado correctamente
+--------------------------------------------------
+{
+    "tutor_id": "4"
+}
+[2025-02-07 20:52:47] DEBUG - Iniciando proceso de hijos
+--------------------------------------------------
+{
+    "num_hijos": 2
+}
+[2025-02-07 20:52:47] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 0,
+    "datos": {
+        "nombre": "cain",
+        "apellidos": "dios",
+        "fecha_nacimiento": "2011-11-11",
+        "centro_id": "2",
+        "curso": "1INF",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}
+[2025-02-07 20:52:47] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 1,
+    "datos": {
+        "nombre": "abel",
+        "apellidos": "dios",
+        "fecha_nacimiento": "0001-01-01",
+        "centro_id": "1",
+        "curso": "1INF",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}
+[2025-02-07 21:00:31] DEBUG - Inicio de proceso
+--------------------------------------------------
+{
+    "POST": {
+        "csrf_token": "4c10f00c89e552e4a8a65f152176a7dbd362ae8a9a8ea7595fba531b9a2065fd",
+        "nombre": "gema maria",
+        "dni": "x7242535c",
+        "email": "amethyst.gema@gmail.com",
+        "telefono": "677283758",
+        "telefono2": "",
+        "forma_pago": "transferencia",
+        "iban": "",
+        "observaciones": "",
+        "hijos": [
+            {
+                "nombre": "Mia",
+                "apellidos": "cok",
+                "fecha_nacimiento": "2015-01-16",
+                "centro": "2",
+                "curso": "1PRI",
+                "horario": "1",
+                "alergias": ""
+            }
+        ]
+    }
+}
+[2025-02-07 21:00:31] Datos de hijos recibidos
+--------------------------------------------------
+[
+    {
+        "nombre": "Mia",
+        "apellidos": "cok",
+        "fecha_nacimiento": "2015-01-16",
+        "centro": "2",
+        "curso": "1PRI",
+        "horario": "1",
+        "alergias": ""
+    }
+]
+[2025-02-07 21:00:31] DEBUG - Datos del tutor a insertar
+--------------------------------------------------
+{
+    "nombre": "gema maria",
+    "dni": "x7242535c",
+    "email": "amethyst.gema@gmail.com",
+    "telefono": "677283758",
+    "telefono2": "",
+    "forma_pago": "transferencia",
+    "observaciones": "",
+    "iban": null
+}
+[2025-02-07 21:00:31] DEBUG - Tutor insertado correctamente
+--------------------------------------------------
+{
+    "tutor_id": "5"
+}
+[2025-02-07 21:00:31] DEBUG - Iniciando proceso de hijos
+--------------------------------------------------
+{
+    "num_hijos": 1
+}
+[2025-02-07 21:00:31] DEBUG - Datos del hijo a insertar
+--------------------------------------------------
+{
+    "index": 0,
+    "datos": {
+        "nombre": "Mia",
+        "apellidos": "cok",
+        "fecha_nacimiento": "2015-01-16",
+        "centro_id": "2",
+        "curso": "1PRI",
+        "alergias": "",
+        "medicacion": "",
+        "observaciones": ""
+    }
+}

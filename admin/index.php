@@ -9,6 +9,7 @@ $filtros = [
     'desayuno' => $_GET['desayuno'] ?? ''
 ];
 
+$colegios = getColegios();
 $inscripciones = getInscripciones($filtros);
 $estadisticas = getEstadisticas();
 ?>
@@ -55,19 +56,30 @@ $estadisticas = getEstadisticas();
                     </div>
                 </div>
 
-                <!-- Filtros -->
+                <!-- Pestañas de colegios -->
+                <ul class="nav nav-tabs mb-4">
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo empty($filtros['colegio']) ? 'active' : ''; ?>" 
+                           href="?colegio=">Todos</a>
+                    </li>
+                    <?php foreach ($colegios as $colegio): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?php echo ($filtros['colegio'] == $colegio['codigo']) ? 'active' : ''; ?>" 
+                           href="?colegio=<?php echo $colegio['codigo']; ?>">
+                            <?php echo $colegio['nombre']; ?>
+                            <span class="badge bg-secondary">
+                                <?php echo contarInscripcionesPorColegio($colegio['codigo']); ?>
+                            </span>
+                        </a>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+
+                <!-- Filtros secundarios -->
                 <form class="row g-3 mb-4">
-                    <div class="col-md-3">
-                        <select name="colegio" class="form-select" onchange="this.form.submit()">
-                            <option value="">Todos los colegios</option>
-                            <?php foreach (getColegios() as $colegio): ?>
-                                <option value="<?php echo $colegio['codigo']; ?>" 
-                                    <?php echo ($filtros['colegio'] == $colegio['codigo']) ? 'selected' : ''; ?>>
-                                    <?php echo $colegio['nombre']; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                    <?php if ($filtros['colegio']): ?>
+                        <input type="hidden" name="colegio" value="<?php echo $filtros['colegio']; ?>">
+                    <?php endif; ?>
                     <div class="col-md-3">
                         <select name="curso" class="form-select" onchange="this.form.submit()">
                             <option value="">Todos los cursos</option>
@@ -95,11 +107,15 @@ $estadisticas = getEstadisticas();
                             <tr>
                                 <th>Responsable</th>
                                 <th>DNI</th>
+                                <th>Total Hijos</th>
                                 <th>Hijo</th>
                                 <th>Colegio</th>
                                 <th>Curso</th>
                                 <th>Hora</th>
-                                <th>Desayuno</th>
+                                <?php if ($filtros['colegio'] === 'ALMADRABA'): ?>
+                                    <th>Desayuno</th>
+                                <?php endif; ?>
+                                <th>Precio</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -108,21 +124,37 @@ $estadisticas = getEstadisticas();
                             <tr>
                                 <td><?php echo htmlspecialchars($i['responsable']); ?></td>
                                 <td><?php echo htmlspecialchars($i['dni']); ?></td>
+                                <td>
+                                    <span class="badge bg-info">
+                                        <i class="bi bi-people"></i>
+                                        <?php echo $i['total_hijos']; ?>
+                                    </span>
+                                </td>
                                 <td><?php echo htmlspecialchars($i['hijo']); ?></td>
                                 <td><?php echo htmlspecialchars($i['colegio']); ?></td>
                                 <td><?php echo htmlspecialchars($i['curso']); ?></td>
                                 <td><?php echo htmlspecialchars($i['hora_entrada']); ?></td>
+                                <?php if ($filtros['colegio'] === 'ALMADRABA'): ?>
+                                    <td>
+                                        <?php if ($i['desayuno']): ?>
+                                            <span class="badge bg-success rounded-circle p-1" 
+                                                  title="Con desayuno - <?= htmlspecialchars($i['hora_entrada']) ?>"
+                                                  data-bs-toggle="tooltip">
+                                                <i class="bi bi-cup-hot-fill"></i>
+                                            </span>
+                                        <?php else: ?>
+                                            <span class="badge bg-secondary rounded-circle p-1"
+                                                  title="Sin desayuno"
+                                                  data-bs-toggle="tooltip">
+                                                <i class="bi bi-x"></i>
+                                            </span>
+                                        <?php endif; ?>
+                                    </td>
+                                <?php endif; ?>
                                 <td>
-                                    <?php if ($i['desayuno']): ?>
-                                        <span class="badge bg-success">
-                                            <i class="bi bi-cup-hot me-1"></i>
-                                            Sí - <?php echo htmlspecialchars($i['hora_entrada']); ?>
-                                            <br>
-                                            <small><?php echo htmlspecialchars($i['colegio']); ?></small>
-                                        </span>
-                                    <?php else: ?>
-                                        <span class="badge bg-secondary">No</span>
-                                    <?php endif; ?>
+                                    <span class="badge bg-primary">
+                                        <?php echo $i['precio']; ?>€
+                                    </span>
                                 </td>
                                 <td>
                                     <button class="btn btn-sm btn-info" onclick="verDetalles(<?php echo $i['id']; ?>)">
@@ -140,5 +172,12 @@ $estadisticas = getEstadisticas();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/admin.js"></script>
+    <script>
+    // Inicializar tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    </script>
 </body>
 </html>

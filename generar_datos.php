@@ -1,10 +1,16 @@
 <?php
 include('conexion.php');
 
-// Arrays para generar datos aleatorios
-$nombres = ['Juan', 'María', 'José', 'Ana', 'Pedro', 'Laura', 'Carlos', 'Sofia', 'Miguel', 'Isabel'];
-$apellidos = ['García', 'Martínez', 'López', 'González', 'Rodríguez', 'Fernández', 'Sánchez', 'Pérez', 'Gómez', 'Torres'];
-$dominios = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com'];
+// Arrays ampliados para generar datos aleatorios
+$nombres = ['Juan', 'María', 'José', 'Ana', 'Pedro', 'Laura', 'Carlos', 'Sofia', 'Miguel', 'Isabel', 
+           'Antonio', 'Carmen', 'David', 'Paula', 'Francisco', 'Lucía', 'Manuel', 'Elena', 'Javier', 'Raquel',
+           'Alberto', 'Rosa', 'Diego', 'Julia', 'Andrés', 'Beatriz', 'Fernando', 'Cristina', 'Luis', 'Victoria'];
+
+$apellidos = ['García', 'Martínez', 'López', 'González', 'Rodríguez', 'Fernández', 'Sánchez', 'Pérez', 'Gómez', 'Torres',
+              'Ruiz', 'Díaz', 'Serrano', 'Hernández', 'Muñoz', 'Sáez', 'Romero', 'Navarro', 'Jiménez', 'Moreno',
+              'Álvarez', 'Alonso', 'Gutiérrez', 'Santos', 'Gil', 'Ramos', 'Blanco', 'Suárez', 'Molina', 'Ortiz'];
+
+$dominios = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com', 'icloud.com', 'protonmail.com'];
 
 function generarDNI() {
     // 20% de probabilidad de generar NIE, 80% DNI
@@ -92,8 +98,8 @@ try {
     $colegios = $conexion->query("SELECT id FROM colegios")->fetchAll(PDO::FETCH_COLUMN);
     $cursos = $conexion->query("SELECT id FROM cursos")->fetchAll(PDO::FETCH_COLUMN);
 
-    // Generar 50 padres
-    for ($i = 0; $i < 50; $i++) {
+    // Generar 100 padres (aumentado de 50 a 100)
+    for ($i = 0; $i < 100; $i++) {
         $nombre = $nombres[array_rand($nombres)] . ' ' . 
                  $apellidos[array_rand($apellidos)] . ' ' . 
                  $apellidos[array_rand($apellidos)];
@@ -125,7 +131,7 @@ try {
     }
 
     $conexion->commit();
-    echo "Datos generados exitosamente: 50 padres con sus respectivos hijos.\n";
+    echo "Datos generados exitosamente: 100 padres con sus respectivos hijos.\n";
 
 } catch (Exception $e) {
     $conexion->rollBack();
