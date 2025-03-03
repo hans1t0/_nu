@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 // Configuración BD
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'hans');
 define('DB_NAME', 'escuela_verano');
 
 // Validar CSRF
@@ -13,17 +13,42 @@ if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_tok
     die(json_encode(['success' => false, 'error' => 'Token inválido']));
 }
 
-// Funciones de sanitización
+// Funciones de sanitización y validación
 function sanitizeString($str) {
     return filter_var(trim($str), FILTER_SANITIZE_STRING);
 }
 
-function sanitizeEmail($email) {
-    return filter_var(trim($email), FILTER_SANITIZE_EMAIL);
+function validateDNINIE($value) {
+    $value = strtoupper($value);
+    
+    // Validar formato
+    if (!preg_match('/^[XYZ0-9][0-9]{7}[A-Z]$/', $value)) {
+        return false;
+    }
+    
+    // Reemplazar letras iniciales de NIE
+    $numero = str_replace(['X', 'Y', 'Z'], [0, 1, 2], substr($value, 0, -1));
+    $letra = substr($value, -1);
+    
+    // Letras válidas en orden
+    $letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+    
+    // Calcular letra esperada
+    $letraEsperada = substr($letras, $numero % 23, 1);
+    
+    return $letra === $letraEsperada;
 }
 
 function sanitizeDNI($dni) {
-    return preg_replace('/[^A-Z0-9]/i', '', $dni);
+    $dni = preg_replace('/[^A-Z0-9]/i', '', strtoupper($dni));
+    if (!validateDNINIE($dni)) {
+        throw new Exception('DNI/NIE no válido');
+    }
+    return $dni;
+}
+
+function sanitizeEmail($email) {
+    return filter_var(trim($email), FILTER_SANITIZE_EMAIL);
 }
 
 function sanitizePhone($phone) {
@@ -52,7 +77,7 @@ try {
     // Validar y sanitizar datos del responsable
     $responsable = [
         'nombre' => sanitizeString($_POST['nombre']),
-        'dni' => sanitizeDNI($_POST['dni']),
+        'dni' => sanitizeDNI($_POST['dni']), // Ahora incluye validación
         'email' => sanitizeEmail($_POST['email']),
         'telefono' => sanitizePhone($_POST['telefono']),
         'forma_pago' => sanitizeString($_POST['forma_pago']),
@@ -160,7 +185,11 @@ try {
 
     // Confirmar transacción
     $pdo->commit();
-    echo json_encode(['success' => true]);
+    $_SESSION['inscripcion_completada'] = true;
+    echo json_encode([
+        'success' => true,
+        'redirect' => 'success.php?id=' . $responsableId
+    ]);
 
 } catch (Exception $e) {
     // Revertir transacción en caso de error

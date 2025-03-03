@@ -1,0 +1,18 @@
+[03-Mar-2025 20:30:35 UTC] PHP Warning:  require_once(../../auth/check_session.php): Failed to open stream: No such file or directory in /Users/jancok/Sites/localhost/_nu3/admin/modules/ludoteca/index.php on line 17
+[03-Mar-2025 20:30:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '../../auth/check_session.php' (include_path='.:/Applications/MAMP/bin/php/php8.2.0/lib/php') in /Users/jancok/Sites/localhost/_nu3/admin/modules/ludoteca/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /Users/jancok/Sites/localhost/_nu3/admin/modules/ludoteca/index.php on line 17
+[03-Mar-2025 20:32:46 UTC] Error de conexión a BD: Error de conexión a la base de datos 'ludoteca': SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+[03-Mar-2025 20:39:25 UTC] Error consultando participantes: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:39:25 UTC] Error consultando participantes activos: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:39:25 UTC] Error consultando actividades: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.actividades' doesn't exist
+[03-Mar-2025 20:39:25 UTC] Error consultando sesiones: Error ejecutando consulta en ludoteca: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fecha' in 'where clause'
+[03-Mar-2025 20:42:21 UTC] Error consultando participantes: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:42:21 UTC] Error consultando participantes activos: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:42:21 UTC] Error consultando actividades: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.actividades' doesn't exist
+[03-Mar-2025 20:42:21 UTC] Error consultando sesiones: Error ejecutando consulta en ludoteca: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fecha' in 'where clause'
+[03-Mar-2025 20:45:13 UTC] Error consultando participantes: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:45:13 UTC] Error consultando participantes activos: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.participantes' doesn't exist
+[03-Mar-2025 20:45:13 UTC] Error consultando actividades: Error ejecutando consulta en ludoteca: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ludoteca_db.actividades' doesn't exist
+[03-Mar-2025 20:45:13 UTC] Error consultando sesiones: Error ejecutando consulta en ludoteca: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'fecha' in 'where clause'

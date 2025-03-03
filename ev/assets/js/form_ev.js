@@ -106,8 +106,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            alert('Inscripción realizada correctamente');
-                            window.location.reload();
+                            if (data.redirect) {
+                                window.location.href = data.redirect;
+                            } else {
+                                window.location.reload();
+                            }
                         } else {
                             alert(data.error);
                             submitBtn.disabled = false;

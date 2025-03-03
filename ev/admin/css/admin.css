@@ -1,0 +1,80 @@
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.text-primary {
+  color: #3b82f6 !important;
+}
+.text-success {
+  color: #22c55e !important;
+}
+.text-info {
+  color: #0ea5e9 !important;
+}
+.text-warning {
+  color: #f59e0b !important;
+}
+
+.card-body i.fs-1 {
+  opacity: 0.8;
+}
+
+.table-responsive {
+  max-height: 300px;
+  overflow-y: auto;
+  min-height: 400px;
+}
+
+.table {
+  font-size: 0.9rem;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  white-space: nowrap;
+  background-color: #f8f9fa;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.4em 0.6em;
+}
+
+@media print {
+  .card {
+    break-inside: avoid;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .btn-group,
+  .dataTables_wrapper .row:first-child,
+  .dataTables_wrapper .row:last-child {
+    display: none !important;
+  }
+
+  .table th {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+
+  .badge {
+    border: 1px solid #000;
+    color: #000 !important;
+    background: none !important;
+  }
+}

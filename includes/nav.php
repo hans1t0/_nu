@@ -100,52 +100,52 @@
     }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.php">
-            <img src="assets/img/logo_ev.png" alt="Logo" height="40" class="me-2">
+        <a class="navbar-brand" href="<?php echo BASE_URL; ?>">
+            <img src="<?php echo IMAGES_URL; ?>logo_ev.png" alt="Educap" height="40">
         </a>
         
-        <!-- Modificado el botón toggler -->
-        <button class="navbar-toggler border-0" type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbarMain" 
-                aria-controls="navbarMain" 
-                aria-expanded="false" 
-                aria-label="Toggle navigation">
-            <i class="bi bi-list h4 mb-0"></i>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
         </button>
-
+        
         <div class="collapse navbar-collapse" id="navbarMain">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link px-3 <?php echo ($pagina == 'inicio') ? 'active fw-bold text-primary' : ''; ?>" href="index.php">
-                        <i class="bi bi-house-door"></i> Inicio
+                    <a class="nav-link <?php echo $pagina === 'inicio' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>">
+                       <i class="bi bi-house-fill me-1"></i>Inicio
                     </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link px-3 dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-journal-text"></i> Servicios
-                    </a>
-                    <ul class="dropdown-menu border-0 shadow-sm">
-                        <li><a class="dropdown-item py-2" href="ludoteca.php">Ludoteca Tardes</a></li>
-                        <li><a class="dropdown-item py-2" href="matinal.php">Guardería Matinal</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item py-2" href="actividades.php">Actividades</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link px-3 dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                        <i class="bi bi-pencil-square"></i> Inscripción
-                    </a>
-                    <ul class="dropdown-menu border-0 shadow-sm">
-                        <li><a class="dropdown-item py-2" href="tardes.php">Ludoteca Tardes</a></li>
-                        <li><a class="dropdown-item py-2" href="matinal_form.php">Guardería Matinal</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 <?php echo ($pagina == 'contacto') ? 'active fw-bold text-primary' : ''; ?>" href="contacto.php">
-                        <i class="bi bi-envelope"></i> Contacto
+                    <a class="nav-link <?php echo $pagina === 'matinera' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>matinera.php">
+                       <i class="bi bi-sunrise-fill me-1"></i>Matinera
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $pagina === 'ludoteca' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>ludoteca.php">
+                       <i class="bi bi-backpack me-1"></i>Ludoteca
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $pagina === 'verano' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>verano.php">
+                       <i class="bi bi-sun-fill me-1"></i>Verano
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $pagina === 'extraescolares' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>extraescolares.php">
+                       <i class="bi bi-journal-check me-1"></i>Extraescolares
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo $pagina === 'contacto' ? 'active' : ''; ?>" 
+                       href="<?php echo BASE_URL; ?>contacto.php">
+                       <i class="bi bi-telephone-fill me-1"></i>Contacto
                     </a>
                 </li>
             </ul>
