@@ -1,0 +1,315 @@
+/* Dashboard de Extraescolares - Estilos principales */
+
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --info-color: #06b6d4;
+  --surface-color: #ffffff;
+  --background-color: #f8fafc;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  position: relative;
+}
+
+/* Media query para móviles */
+@media (max-width: 768px) {
+  body {
+    padding-left: 0;
+  }
+}
+
+/* Contenedor principal */
+.container-fluid {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 1.5rem; /* Reducido de 2rem */
+  min-height: calc(100vh - 60px); /* Altura total menos el header */
+}
+
+/* Ajustes del breadcrumb */
+.breadcrumb {
+  background: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumb-item.active {
+  color: #94a3b8;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #94a3b8;
+}
+
+/* Mejoras visuales generales */
+.dashboard-card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Tarjetas de estadísticas */
+.stat-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 10px;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-card .card-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+/* Colores para las tarjetas */
+.stat-card.primary .card-icon {
+  color: #4f8ed5;
+  background-color: rgba(79, 142, 213, 0.1);
+}
+
+.stat-card.success .card-icon {
+  color: #5ab88a;
+  background-color: rgba(90, 184, 138, 0.1);
+}
+
+.stat-card.warning .card-icon {
+  color: #e7c43e;
+  background-color: rgba(231, 196, 62, 0.1);
+}
+
+.stat-card.danger .card-icon {
+  color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.stat-card.info .card-icon {
+  color: #17a2b8;
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+/* Tarjetas de datos */
+.data-card {
+  border-radius: 10px;
+  transition: box-shadow 0.3s;
+}
+
+.data-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Botones de acción */
+.action-btn {
+  position: relative;
+  transition: all 0.3s;
+  border: none;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.action-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.action-btn:hover::after {
+  opacity: 1;
+}
+
+/* Tarjeta de bienvenida */
+.welcome-card {
+  background-color: #f8f9fa;
+  border-left: 4px solid #4f8ed5;
+}
+
+/* Animaciones personalizadas adicionales */
+@keyframes pulse-light {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 142, 213, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(79, 142, 213, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(79, 142, 213, 0);
+  }
+}
+
+.alert-pulse {
+  animation: pulse-light 2s infinite;
+}
+
+/* Mejoras para responsive */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 220px;
+  }
+
+  .stat-card .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .stat-card .display-4 {
+    font-size: 2rem;
+  }
+}
+
+.dashboard-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+
+.stat-primary {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+}
+
+.stat-success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--success-color);
+}
+
+.stat-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+}
+
+.quick-action {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.2s ease;
+}
+
+.quick-action:hover {
+  background-color: var(--primary-color);
+  color: white !important;
+  border-color: var(--primary-color);
+}
+
+.quick-action:hover .text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.activity-item {
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  background-color: rgba(241, 245, 249, 0.5);
+  transition: all 0.2s ease;
+}
+
+.activity-item:hover {
+  background-color: rgba(241, 245, 249, 0.8);
+}
+
+.table-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.custom-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 1.5rem;
+}
+
+.badge-status-active {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.badge-status-inactive {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+/* Select2 customization */
+.select2-container--default .select2-selection--multiple {
+  border-color: #ced4da;
+  padding: 0.25rem 0.5rem;
+  min-height: 38px;
+}
+
+.table-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 220px;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}

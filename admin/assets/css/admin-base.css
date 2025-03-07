@@ -1,0 +1,153 @@
+:root {
+  --primary: #2563eb;
+  --secondary: #475569;
+  --success: #16a34a;
+  --info: #0891b2;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --light: #f1f5f9;
+  --dark: #1e293b;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base */
+body {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+/* Cards */
+.nu3-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.nu3-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Stats Card */
+.nu3-stat-card {
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.nu3-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--dark);
+}
+
+.nu3-stat-label {
+  font-size: 0.875rem;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* Tables */
+.nu3-table {
+  width: 100%;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.nu3-table thead th {
+  background: var(--light);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--secondary);
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.nu3-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nu3-table tbody tr:hover {
+  background-color: var(--light);
+}
+
+/* Buttons */
+.nu3-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.nu3-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Quick Actions */
+.nu3-quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  background: white;
+  border-radius: 0.75rem;
+  transition: all 0.2s;
+}
+
+.nu3-quick-action:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.nu3-quick-action i {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Badges */
+.nu3-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+/* Headers */
+.nu3-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.nu3-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+/* Utilities */
+.nu3-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
